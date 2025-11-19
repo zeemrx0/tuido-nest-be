@@ -21,7 +21,8 @@
   },
   "_moduleAliases": {
     "@shared": "src/shared",
-    "@user": "src/modules/user"
+    "@user": "src/modules/user",
+    "@task": "src/modules/task"
   },
   "dependencies": {
     "@nestjs/common": "^11.1.9",
