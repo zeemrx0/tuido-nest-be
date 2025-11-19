@@ -1,9 +1,9 @@
 import { Controller, Post, Get, Body, HttpCode, HttpStatus, UseGuards, Inject } from '@nestjs/common';
-import { IUserService } from '../../domain/user.port';
-import { UserLoginDto, UserRegistrationDto } from '../../domain/user.dto';
-import { JwtAuthGuard } from '../../../../shared/guards';
-import { CurrentUser } from '../../../../shared/decorators';
-import { TokenPayload } from '../../../../shared/interfaces';
+import { IUserService } from '@user/domain/user.port';
+import { UserLoginDto, UserRegistrationDto } from '@user/domain/user.dto';
+import { JwtAuthGuard } from '@shared/guards';
+import { CurrentUser } from '@shared/decorators';
+import { TokenPayload } from '@shared/interfaces';
 
 @Controller('v1')
 export class UserController {

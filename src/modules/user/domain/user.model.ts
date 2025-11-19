@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import * as UserError from './errors';
 import { Status } from './enums';
-import { UserRole } from '../../../shared/enums';
+import { UserRole } from '@shared/enums';
 
 export const userSchema = z.object({
   id: z.uuid(),

@@ -1,7 +1,7 @@
-import { ICommandRepository, IQueryRepository, IRepository } from '../interfaces';
-import { PagingDto } from '../models/paging.dto';
+import { ICommandRepository, IQueryRepository, IRepository } from '@shared/interfaces';
+import { PagingDto } from '@shared/models/paging.dto';
 import { Op, Sequelize } from 'sequelize';
-import { ModelStatus } from '../enums';
+import { ModelStatus } from '@shared/enums';
 
 export abstract class BaseRepositorySequelize<Entity, Condition, UpdateDto>
   implements IRepository<Entity, Condition, UpdateDto>

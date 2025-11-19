@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { userSchema } from './user.model';
 import { Status } from './enums';
 import * as UserError from './errors';
-import { UserRole } from '../../../shared/enums';
+import { UserRole } from '@shared/enums';
 
 // User Registration DTO
 export const UserRegistrationDtoSchema = userSchema.pick({

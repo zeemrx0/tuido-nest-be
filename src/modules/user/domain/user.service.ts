@@ -3,13 +3,13 @@ import { JwtService } from '@nestjs/jwt';
 import { v7 } from 'uuid';
 import * as bcrypt from 'bcrypt';
 import { User } from './user.model';
-import { TokenPayload } from '../../../shared/interfaces';
+import { TokenPayload } from '@shared/interfaces';
 import * as UserError from './errors';
 import { Status } from './enums';
-import { UserRole } from '../../../shared/enums';
+import { UserRole } from '@shared/enums';
 import { UserLoginDto, UserLoginDtoSchema, UserRegistrationDto, UserRegistrationDtoSchema } from './user.dto';
 import { IUserService } from './user.port';
-import { MySQLUserRepository } from '../infrastructure/repositories/mysql';
+import { MySQLUserRepository } from '@user/infrastructure/repositories/mysql';
 
 @Injectable()
 export class UserService implements IUserService {

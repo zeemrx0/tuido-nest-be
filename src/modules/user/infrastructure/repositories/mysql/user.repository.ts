@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { InjectConnection } from '@nestjs/sequelize';
 import { Sequelize } from 'sequelize';
-import { User } from '../../../domain/user.model';
-import { UserConditionDto, UserUpdateDto } from '../../../domain/user.dto';
+import { User } from '@user/domain/user.model';
+import { UserConditionDto, UserUpdateDto } from '@user/domain/user.dto';
 import {
   BaseCommandRepositorySequelize,
   BaseQueryRepositorySequelize,
   BaseRepositorySequelize,
-} from '../../../../../shared/repositories';
+} from '@shared/repositories';
 import { initUserPersistenceModel, modelName } from './user-persistence.model';
 
 @Injectable()

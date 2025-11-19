@@ -1,5 +1,5 @@
 import { DataTypes, Model } from 'sequelize';
-import { Status } from '../../../domain/enums';
+import { Status } from '@user/domain/enums';
 import { UserRole } from '../../../../../shared/enums';
 
 export class UserPersistenceModel extends Model {}
