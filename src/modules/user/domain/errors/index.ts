@@ -1,0 +1,10 @@
+export const firstNameAtLeast2Chars = new Error('First name must be at least 2 characters');
+export const lastNameAtLeast2Chars = new Error('Last name must be at least 2 characters');
+export const emailInvalid = new Error('Email is invalid');
+export const passwordAtLeast6Chars = new Error('Password must be at least 6 characters');
+export const roleInvalid = new Error('Role is invalid');
+export const emailExisted = new Error('Email is already existed');
+export const invalidEmailAndPassword = new Error('Invalid email and password');
+export const userInactivated = new Error('User is inactivated or banned');
+export const invalidToken = new Error('Invalid token');
+export const userNotFound = new Error('User not found');
