@@ -15,22 +15,34 @@ export class UserController {
   @Post('register')
   @HttpCode(HttpStatus.CREATED)
   async register(@Body() data: UserRegistrationDto) {
-    const userId = await this.userService.register(data);
-    return { data: userId };
+    try {
+      const userId = await this.userService.register(data);
+      return { data: userId };
+    } catch (error) {
+      throw error;
+    }
   }
 
   @Post('login')
   @HttpCode(HttpStatus.OK)
   async login(@Body() data: UserLoginDto) {
-    const token = await this.userService.login(data);
-    return { data: { token } };
+    try {
+      const token = await this.userService.login(data);
+      return { data: { token } };
+    } catch (error) {
+      throw error;
+    }
   }
 
   @Get('profile')
   @UseGuards(JwtAuthGuard)
   @HttpCode(HttpStatus.OK)
   async getProfile(@CurrentUser() user: TokenPayload) {
-    const profile = await this.userService.getProfile(user.subject);
-    return { data: profile };
+    try {
+      const profile = await this.userService.getProfile(user.subject);
+      return { data: profile };
+    } catch (error) {
+      throw error;
+    }
   }
 }
