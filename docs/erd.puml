@@ -1,0 +1,33 @@
+@startuml TaskModuleERD
+
+hide circle
+skinparam linetype ortho
+
+entity "User" as user {
+  *id : UUID
+  --
+  email : VARCHAR
+  password : VARCHAR
+  first_name : VARCHAR
+  last_name : VARCHAR
+  --
+  created_at : TIMESTAMP
+  updated_at : TIMESTAMP
+}
+
+entity "Task" as task {
+  *id : UUID
+  --
+  user_id : UUID
+  project_id : UUID
+  title : VARCHAR
+  description : TEXT
+  status : ENUM('TODO', 'IN_PROGRESS', 'DONE')
+  priority : ENUM('LOW', 'MEDIUM', 'HIGH')
+  due_date : TIMESTAMP
+  --
+  created_at : TIMESTAMP
+  updated_at : TIMESTAMP
+}
+
+@enduml
