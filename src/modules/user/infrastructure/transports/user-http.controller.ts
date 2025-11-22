@@ -1,5 +1,5 @@
 import { Controller, Post, Get, Body, HttpCode, HttpStatus, UseGuards, Inject } from '@nestjs/common';
-import { IUserService } from '@user/domain/user.port';
+import { IUserService, USER_SERVICE } from '@user/domain/user.port';
 import { UserLoginDto, UserRegistrationDto } from '@user/domain/user.dto';
 import { JwtAuthGuard } from '@shared/guards';
 import { CurrentUser } from '@shared/decorators';
@@ -8,7 +8,7 @@ import { TokenPayload } from '@shared/interfaces';
 @Controller('v1')
 export class UserController {
   constructor(
-    @Inject('IUserService')
+    @Inject(USER_SERVICE)
     private readonly userService: IUserService,
   ) {}
 

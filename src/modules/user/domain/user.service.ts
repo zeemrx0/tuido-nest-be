@@ -13,13 +13,14 @@ import {
   UserRegistrationDto,
   UserRegistrationDtoSchema,
 } from '@user/domain/user.dto';
-import { IUserService } from '@user/domain/user.port';
-import { MySQLUserRepository } from '@user/infrastructure/repositories/mysql';
+import { IUserRepository, IUserService, USER_REPOSITORY } from '@user/domain/user.port';
+import { Inject } from '@nestjs/common';
 
 @Injectable()
 export class UserService implements IUserService {
   constructor(
-    private readonly repository: MySQLUserRepository,
+    @Inject(USER_REPOSITORY)
+    private readonly repository: IUserRepository,
     private readonly jwtService: JwtService,
   ) {}
 
