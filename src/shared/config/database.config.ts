@@ -1,5 +1,6 @@
 import { SequelizeModuleOptions } from '@nestjs/sequelize';
 import * as dotenv from 'dotenv';
+import { UserPersistenceModel } from '@user/infrastructure/repositories/mysql/user-persistence.model';
 
 dotenv.config();
 
@@ -10,8 +11,9 @@ export const databaseConfig: SequelizeModuleOptions = {
   username: process.env.DB_USERNAME || 'root',
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'tuido',
+  models: [UserPersistenceModel],
   autoLoadModels: true,
-  synchronize: false,
+  synchronize: process.env.DB_SYNCHRONIZE === 'true',
   pool: {
     max: 20,
     min: 2,

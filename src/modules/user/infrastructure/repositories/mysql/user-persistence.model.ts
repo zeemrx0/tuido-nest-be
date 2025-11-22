@@ -1,67 +1,77 @@
-import { DataTypes, Model } from 'sequelize';
+import { Table, Column, Model, DataType } from 'sequelize-typescript';
 import { Status } from '@user/domain/enums';
-import { UserRole } from '../../../../../shared/enums';
+import { UserRole } from '@shared/enums';
 
-export class UserPersistenceModel extends Model {}
+@Table({
+  tableName: 'users',
+  timestamps: true,
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
+  modelName: 'User',
+})
+export class UserPersistenceModel extends Model {
+  @Column({
+    type: DataType.UUID,
+    primaryKey: true,
+  })
+  declare id: string;
 
-export const modelName = 'User';
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+    field: 'first_name',
+  })
+  declare firstName: string;
 
-export function initUserPersistenceModel(sequelize: any): void {
-  UserPersistenceModel.init(
-    {
-      id: {
-        type: DataTypes.UUID,
-        primaryKey: true,
-      },
-      firstName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        field: 'first_name',
-      },
-      lastName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        field: 'last_name',
-      },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-      },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      salt: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      phoneNumber: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        field: 'phone_number',
-      },
-      status: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        defaultValue: Status.ACTIVE,
-      },
-      avatar: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      role: {
-        type: DataTypes.STRING,
-        defaultValue: UserRole.USER,
-      },
-    },
-    {
-      sequelize,
-      modelName: modelName,
-      timestamps: true,
-      createdAt: 'created_at',
-      updatedAt: 'updated_at',
-      tableName: 'users',
-    },
-  );
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+    field: 'last_name',
+  })
+  declare lastName: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+    unique: true,
+  })
+  declare email: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  declare password: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  declare salt: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+    field: 'phone_number',
+  })
+  declare phoneNumber: string | null;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+    defaultValue: Status.ACTIVE,
+  })
+  declare status: Status;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  declare avatar: string | null;
+
+  @Column({
+    type: DataType.STRING,
+    defaultValue: UserRole.USER,
+  })
+  declare role: UserRole;
 }
