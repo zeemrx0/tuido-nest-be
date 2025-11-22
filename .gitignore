@@ -2,6 +2,7 @@
 /dist
 /node_modules
 /build
+/bower_components
 
 # Logs
 logs
@@ -12,8 +13,14 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
 # OS
 .DS_Store
+Thumbs.db
 
 # Tests
 /coverage
@@ -27,20 +34,10 @@ lerna-debug.log*
 *.launch
 .settings/
 *.sublime-workspace
-
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+.vscode
 
 # dotenv environment variable files
-.env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
+.env*
 
 # temp directory
 .temp
