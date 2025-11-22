@@ -1,7 +1,7 @@
 import { z } from 'zod';
-import { userSchema } from './user.model';
-import { Status } from './enums';
-import * as UserError from './errors';
+import { userSchema } from '@user/domain/user.model';
+import { Status } from '@user/domain/enums';
+import * as UserError from '@user/domain/errors';
 import { UserRole } from '@shared/enums';
 
 // User Registration DTO

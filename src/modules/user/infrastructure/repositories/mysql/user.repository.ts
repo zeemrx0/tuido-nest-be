@@ -8,15 +8,12 @@ import {
   BaseQueryRepositorySequelize,
   BaseRepositorySequelize,
 } from '@shared/repositories';
-import { initUserPersistenceModel, modelName } from './user-persistence.model';
+
+const modelName = 'User';
 
 @Injectable()
 export class MySQLUserRepository extends BaseRepositorySequelize<User, UserConditionDto, UserUpdateDto> {
   constructor(@InjectConnection() readonly sequelize: Sequelize) {
-    // Initialize the model
-    initUserPersistenceModel(sequelize);
-
-    // Create query and command repositories
     const queryRepo = new MySQLUserQueryRepository(sequelize, modelName);
     const commandRepo = new MySQLUserCommandRepository(sequelize, modelName);
 

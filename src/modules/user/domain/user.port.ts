@@ -1,5 +1,5 @@
-import { UserLoginDto, UserRegistrationDto } from './user.dto';
-import { User } from './user.model';
+import { UserLoginDto, UserRegistrationDto } from '@user/domain/user.dto';
+import { User } from '@user/domain/user.model';
 
 export interface IUserService {
   register(data: UserRegistrationDto): Promise<string>;

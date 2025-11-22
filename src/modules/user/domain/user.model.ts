@@ -1,6 +1,6 @@
 import { z } from 'zod';
-import * as UserError from './errors';
-import { Status } from './enums';
+import * as UserError from '@user/domain/errors';
+import { Status } from '@user/domain/enums';
 import { UserRole } from '@shared/enums';
 
 export const userSchema = z.object({
