@@ -8,11 +8,15 @@ import {
   BaseQueryRepositorySequelize,
   BaseRepositorySequelize,
 } from '@shared/repositories';
+import { IUserRepository } from '@user/domain/user.port';
 
 const modelName = 'User';
 
 @Injectable()
-export class MySQLUserRepository extends BaseRepositorySequelize<User, UserConditionDto, UserUpdateDto> {
+export class MySQLUserRepository
+  extends BaseRepositorySequelize<User, UserConditionDto, UserUpdateDto>
+  implements IUserRepository
+{
   constructor(@InjectConnection() readonly sequelize: Sequelize) {
     const queryRepo = new MySQLUserQueryRepository(sequelize, modelName);
     const commandRepo = new MySQLUserCommandRepository(sequelize, modelName);
